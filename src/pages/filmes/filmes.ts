@@ -27,5 +27,18 @@ export class FilmesPage {
         this.results = data.results;
       });
   }
-}
 
+  getItens(ev: any){
+    this.getDados();
+    let val = ev.target.value;
+    let result;
+    if (val && val.trim() != ''){
+        result= this.results.filter((item) => {
+          return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    });
+    }
+
+    setTimeout( handler: () => {
+    this.results = result;
+});
+}
