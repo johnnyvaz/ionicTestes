@@ -10,9 +10,9 @@
 <ion-content padding>
 
 
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="getItens($event)"></ion-searchbar>
     <ion-list>
-      
+
         <ion-item *ngFor="let item of results">
             <ion-thumbnail item-start>
                 <img [src]="'http://image.tmdb.org/t/p/w185/' + item.backdrop_path">
