@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Filmes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
+  <ion-list *ngFor="let item of results">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img [src]="'http://image.tmdb.org/t/p/w185/' + item.backdrop_path">
+      </ion-thumbnail>
+
+      <button ion-button clear item-end>View</button>
+    <ion-card>
+        <h2>{{ item.title }}</h2>
+      <img [src]="'http://image.tmdb.org/t/p/w185/' + item.poster_path">
+      <ion-card-content>
+        <ion-card-title>
+
+          </ion-card-title>
+
+          <p>{{ item.overview }} </p>
+          <p>Data: {{ item.release_date }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+
+  </ion-list>
+
+
+</ion-content>
