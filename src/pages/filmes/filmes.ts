@@ -11,25 +11,21 @@ import 'rxjs/add/operator/map';
 export class FilmesPage {
 
 
-  private url:string = 'https://api.themoviedb.org/3/movie/upcoming?api_key=fe65f8e840e15d06c5c00bf13084da74&language=pt-BR&page=1'
+  private url: string = 'https://api.themoviedb.org/3/movie/upcoming?api_key=fe65f8e840e15d06c5c00bf13084da74&language=pt-BR&page=1'
   public results: Array<{}>;
 
 
-constructor(public navCtrl: NavController,
-  public http: Http
-) {
-  //console.log(this.results);
-  this.getDados();
-}
+  constructor(public navCtrl: NavController,
+    public http: Http) {
+    this.getDados();
+  }
 
-getDados() {
-  this.http.get(this.url)
-  .map(res => res.json())
-  .subscribe(data => {
-      this.results = data;
-      console.log(data);
-    //return data;
-});
-}
+  getDados() {
+    this.http.get(this.url)
+      .map(res => res.json())
+      .subscribe(data => {
+        this.results = data.results;
+      });
+  }
 }
 
