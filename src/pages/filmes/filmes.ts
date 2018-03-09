@@ -19,28 +19,29 @@ export class FilmesPage {
     public http: Http) {
     this.getDados();
   }
-
+//funcão para pegar os dados da api
   getDados() {
     this.http.get(this.url)
       .map(res => res.json())
       .subscribe(data => {
         this.results = data.results;
+        console.log(this.results);
       });
   }
 
-  getItens(ev: any) {
-    this.getDados();
-    let val = ev.target.value;
-    let result;
-    if (val && val.trim() != '') {
-      result = this.results.filter((item) => {
-        return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      });
-    }
+  // getItens(ev: any) {
+  //   this.getDados();
+  //   let val = ev.target.value;
+  //   let result;
+  //   if (val && val.trim() != '') {
+  //     result = this.results.filter((item) => {
+  //       return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+  //     });
+  //   }
 
-    setTimeout(() => {
-      this.results = result.data;
-      console.log(this.results);
-    }, 500);
-  }
+  //   setTimeout(() => {
+  //     this.results = result.data;
+  //     console.log(this.results);
+  //   }, 500);
+  // }
 }

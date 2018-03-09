@@ -1,3 +1,25 @@
 page-filmes {
 
+img {
+  width: 185px;
+  display: inline-block;
+  margin: 0 0 0 0;
+//padding: 10px;
+}
+
+ion-label {
+  white-space:normal !important;
+  display: inline-block;
+  padding: 5px;
+}
+
+.texto {
+  padding: 6px;
+}
+
+.cartao {
+  border-width: 25px;
+  border-style: outset;
+  border-color: #9c27b0;
+}
 }

@@ -1,32 +1,50 @@
-<ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Filmes</ion-title>
-    </ion-navbar>
-</ion-header>
+    <ion-title>Filmes</ion-title>
+  </ion-navbar>
+</ion-header> -->
 
-<ion-content padding>
+<ion-content>
+  <!-- <ion-searchbar (ionInput)="getItens($event)"></ion-searchbar> -->
+  <ion-list>
+    <ion-item *ngFor="let item of results">
+      <ion-card class='cartao'>
+        <button ion-button full color='botao'>{{ item.title }}</button>
 
-
-    <ion-searchbar (ionInput)="getItens($event)"></ion-searchbar>
-    <ion-list>
-
-        <ion-item *ngFor="let item of results">
-            <ion-thumbnail item-start>
-                <img [src]="'http://image.tmdb.org/t/p/w185/' + item.backdrop_path">
-            </ion-thumbnail>
-
-            <h2>{{ item.title }}</h2>
-
+        <div text-center>
+          <img [src]="'http://image.tmdb.org/t/p/w185/' + item.poster_path">
+        </div>
+        <div class='texto'>
+          <div text-justify>
             <p>{{ item.overview }} </p>
-            <p>Data: {{ item.release_date }}</p>
-            <button ion-button clear item-end>Ver</button>
-
-        </ion-item>
-
-    </ion-list>
-
-
+          </div>
+        </div>
+        <div>
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-left clear small color='danger'>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>Pontos: {{ item.vote_average }}</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-left clear small color='danger'>
+                <ion-icon name="text"></ion-icon>
+                <div>Votos {{ item.vote_count }}</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-left clear small color='danger'>
+                <ion-icon name="md-calendar"></ion-icon>
+                <div>{{ item.release_date }}</div>
+              </button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>
