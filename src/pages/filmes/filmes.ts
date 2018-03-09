@@ -28,17 +28,19 @@ export class FilmesPage {
       });
   }
 
-  getItens(ev: any){
+  getItens(ev: any) {
     this.getDados();
     let val = ev.target.value;
     let result;
-    if (val && val.trim() != ''){
-        result= this.results.filter((item) => {
-          return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
-    });
+    if (val && val.trim() != '') {
+      result = this.results.filter((item) => {
+        return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
     }
 
-    setTimeout( handler: () => {
-    this.results = result;
-});
+    setTimeout(() => {
+      this.results = result.data;
+      console.log(this.results);
+    }, 500);
+  }
 }
